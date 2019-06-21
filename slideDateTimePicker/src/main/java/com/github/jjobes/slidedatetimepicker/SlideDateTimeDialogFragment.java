@@ -50,6 +50,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
     private Date mInitialDate;
     private int mTheme;
     private int mIndicatorColor;
+    private int mTabIndex;
     private Date mMinDate;
     private Date mMaxDate;
     private boolean mIsClientSpecified24HourTime;
@@ -82,7 +83,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
      * @return
      */
     public static SlideDateTimeDialogFragment newInstance(SlideDateTimeListener listener,
-            Date initialDate, Date minDate, Date maxDate, boolean isClientSpecified24HourTime,
+            Date initialDate, int tabIndex, Date minDate, Date maxDate, boolean isClientSpecified24HourTime,
             boolean is24HourTime, int theme, int indicatorColor)
     {
         mListener = listener;
@@ -99,6 +100,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
         bundle.putBoolean("is24HourTime", is24HourTime);
         bundle.putInt("theme", theme);
         bundle.putInt("indicatorColor", indicatorColor);
+        bundle.putInt("tabIndex", tabIndex);
         dialogFragment.setArguments(bundle);
 
         // Return the fragment with its bundle
@@ -177,6 +179,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
         mIs24HourTime = args.getBoolean("is24HourTime");
         mTheme = args.getInt("theme");
         mIndicatorColor = args.getInt("indicatorColor");
+        mTabIndex= args.getInt("tabIndex");
     }
 
     private void setupViews(View v)
@@ -224,6 +227,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
         // fill all available horizontal space.
         mSlidingTabLayout.setCustomTabView(R.layout.custom_tab, R.id.tabText);
         mSlidingTabLayout.setViewPager(mViewPager);
+        mViewPager.setCurrentItem(mTabIndex);
     }
 
     private void initTabs()

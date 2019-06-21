@@ -30,6 +30,7 @@ public class SlideDateTimePicker
     private boolean mIs24HourTime;
     private int mTheme;
     private int mIndicatorColor;
+    private int mTabIndex;
 
     /**
      * Creates a new instance of {@code SlideDateTimePicker}.
@@ -79,6 +80,21 @@ public class SlideDateTimePicker
     public void setInitialDate(Date initialDate)
     {
         mInitialDate = initialDate;
+    }
+
+    /**
+     * <p>Sets the initial date and time to display in the date
+     * and time pickers.</p>
+     *
+     * <p>If this method is not called, the current date and time
+     * will be displayed.</p>
+     *
+     * @param initialDate  the {@code Date} object used to determine the
+     *                     initial date and time to display
+     */
+    public void setDefaultTab(int tabIndex)
+    {
+        mTabIndex = tabIndex;
     }
 
     /**
@@ -174,6 +190,7 @@ public class SlideDateTimePicker
                 SlideDateTimeDialogFragment.newInstance(
                         mListener,
                         mInitialDate,
+                        mTabIndex,
                         mMinDate,
                         mMaxDate,
                         mIsClientSpecified24HourTime,
