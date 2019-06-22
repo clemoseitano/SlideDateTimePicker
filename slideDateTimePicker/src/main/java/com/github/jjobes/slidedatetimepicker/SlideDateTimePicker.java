@@ -214,6 +214,7 @@ public class SlideDateTimePicker
 
         // Optional
         private Date initialDate;
+        private int defaultTab;
         private Date minDate;
         private Date maxDate;
         private boolean isClientSpecified24HourTime;
@@ -241,6 +242,15 @@ public class SlideDateTimePicker
         public Builder setInitialDate(Date initialDate)
         {
             this.initialDate = initialDate;
+            return this;
+        }
+
+        /**
+         * @see SlideDateTimePicker#setDefaultTab(int)
+         */
+        public Builder setDefaultTab(int defaultTab)
+        {
+            this.defaultTab = defaultTab;
             return this;
         }
 
@@ -303,6 +313,7 @@ public class SlideDateTimePicker
             SlideDateTimePicker picker = new SlideDateTimePicker(fm);
             picker.setListener(listener);
             picker.setInitialDate(initialDate);
+            picker.setDefaultTab(defaultTab);
             picker.setMinDate(minDate);
             picker.setMaxDate(maxDate);
             picker.setIsClientSpecified24HourTime(isClientSpecified24HourTime);
