@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:minHeight="315dp"
+    android:gravity="bottom"
     android:orientation="vertical">
 
     <com.github.jjobes.slidedatetimepicker.SlidingTabLayout
@@ -16,7 +16,9 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:minHeight="300dp" />
 
     <!--
         The horizontal separator that runs across the top of
@@ -34,7 +36,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancelButton"
@@ -50,8 +54,8 @@
             android:id="@+id/buttonVerticalDivider"
             android:layout_width="1px"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/gray_holo_dark" />
 
         <Button

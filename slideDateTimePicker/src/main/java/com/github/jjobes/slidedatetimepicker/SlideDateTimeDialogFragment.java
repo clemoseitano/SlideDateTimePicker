@@ -108,7 +108,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
     }
 
     @Override
-    public void onAttach(Activity activity)
+    public void onAttach(Context activity)
     {
         super.onAttach(activity);
 
